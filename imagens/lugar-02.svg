@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#5b3b2f"/><stop offset="100%" stop-color="#c96c45"/></linearGradient></defs>
+<rect width="1200" height="900" fill="url(#g)"/>
+<circle cx="924" cy="252" r="144" fill="rgba(255,255,255,.12)"/>
+<path d="M0 702 C300 522, 600 882, 1200 585 L1200 900 L0 900Z" fill="rgba(255,255,255,.11)"/>
+<text x="600.0" y="440.0" text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="58" font-weight="800">LOCAL 02</text>
+<text x="600.0" y="505.0" text-anchor="middle" fill="rgba(255,255,255,.82)" font-family="Arial" font-size="23">Substituir por fotografia real</text>
+</svg>

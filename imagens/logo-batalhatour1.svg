@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="180" viewBox="0 0 720 180">
+<rect width="720" height="180" fill="none"/>
+<g transform="translate(10,10)">
+  <path d="M22 120 C90 65, 140 135, 205 88 C247 58, 296 60, 340 92" fill="none" stroke="#0f3d2e" stroke-width="11" stroke-linecap="round"/>
+  <path d="M65 111 C120 85, 177 90, 232 111" fill="none" stroke="#8bc53f" stroke-width="16" stroke-linecap="round"/>
+  <path d="M180 74 V30 L204 16 L228 30 V74" fill="none" stroke="#0f3d2e" stroke-width="9"/>
+  <path d="M204 16 V0 M196 7 H212" stroke="#0f3d2e" stroke-width="7" stroke-linecap="round"/>
+  <path d="M248 81 V45 L270 31 L292 45 V81" fill="none" stroke="#0f3d2e" stroke-width="9"/>
+  <path d="M270 31 V14 M262 21 H278" stroke="#0f3d2e" stroke-width="7" stroke-linecap="round"/>
+</g>
+<text x="380" y="95" font-family="Arial, Helvetica, sans-serif" font-size="63" font-weight="800" fill="#0f3d2e">Batalha</text>
+<text x="590" y="95" font-family="Arial, Helvetica, sans-serif" font-size="63" font-weight="800" fill="#8bc53f">Tour</text>
+<text x="386" y="129" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="4" fill="#66736d">ESTUDANTES GUIANDO HISTÓRIAS</text>
+</svg>

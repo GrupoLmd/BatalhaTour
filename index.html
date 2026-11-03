@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BatalhaTour — um portal turístico desenvolvido pelos estudantes do 1º B.">
+    <title>BatalhaTour | Descubra Batalha</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS do mapa interativo -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""
+    >
+</head>
+<body>
+    <header class="cabecalho">
+        <a class="marca" href="#inicio" aria-label="Voltar ao início">
+            <img src="imagens/logo-batalhatour.png" alt="Logotipo BatalhaTour">
+        </a>
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="menu" aria-label="Navegação principal">
+            <a href="#inicio">Início</a>
+            <a href="#conheca">Conheça</a>
+            <a href="#experiencias">Experiências</a>
+            <a href="#lugares">Lugares</a>
+            <a href="#mercado">Mercado local</a>
+            <a href="#culinaria">Culinária</a>
+            <a href="#mapa">Mapa</a>
+            <a href="#roteiro">Roteiro</a>
+        </nav>
+        <a class="botao botao-menor" href="#experiencias">Explorar</a>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="hero-conteudo">
+                <span class="etiqueta">Turismo • Cultura • Experiências</span>
+                <h1>Descubra uma Batalha <span>que merece ser vivida.</span></h1>
+                <p>Histórias, sabores, lugares e pessoas apresentados pelos estudantes do 1º B.</p>
+                <div class="hero-acoes">
+                    <a class="botao" href="#experiencias">Começar a viagem</a>
+                    <a class="link-destaque" href="#conheca">Conhecer o projeto →</a>
+                </div>
+                <div class="hero-dados">
+                    <div><strong>01</strong><span>Cidade</span></div>
+                    <div><strong>06</strong><span>Experiências</span></div>
+                    <div><strong>1º B</strong><span>Turma criadora</span></div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="forma forma-1"></div>
+                <div class="forma forma-2"></div>
+                <div class="forma forma-3"></div>
+                <img class="foto-aluno foto-guia" src="imagens/aluno-guia.svg" alt="Espaço reservado para a fotografia do aluno guia">
+                <div class="cartao-flutuante cartao-local">
+                    <span>📍</span>
+                    <div><small>Você está em</small><strong>Batalha, Piauí</strong></div>
+                </div>
+                <div class="cartao-flutuante cartao-projeto">
+                    <small>Projeto estudantil</small><strong>Feira Tecnológica</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao secao-clara" id="conheca">
+            <div class="secao-cabecalho">
+                <span class="numero-secao">01</span>
+                <div><span class="sobretitulo">Conheça Batalha</span><h2>Uma cidade contada por quem vive nela.</h2></div>
+            </div>
+            <div class="apresentacao-grade">
+                <div class="painel-imagem">
+                    <img src="imagens/cidade-placeholder.png" alt="Espaço reservado para uma fotografia da cidade de Batalha">
+                    
+                </div>
+                <div class="texto-apresentacao">
+                    <p class="texto-grande">O BatalhaTour nasce para apresentar a identidade local por meio do olhar dos estudantes.</p>
+                    <p>Batalha, no Piauí, é uma joia histórica e cultural que se destaca pelo seu legado de resistência, fervor religioso e uma identidade serrana única. 
+                        O município é um dos mais antigos do estado e carrega o peso e o charme de séculos de tradição no norte piauiense.</p>
+                    <div class="lista-destaques">
+                        <div><span>01</span><p>História e memória</p></div>
+                        <div><span>02</span><p>Cultura e tradição</p></div>
+                        <div><span>03</span><p>Natureza e experiências</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao secao-verde" id="experiencias">
+            <div class="secao-cabecalho secao-cabecalho-claro">
+                <span class="numero-secao">02</span>
+                <div><span class="sobretitulo">Explore por experiências</span><h2>Escolha como você quer descobrir Batalha.</h2></div>
+            </div>
+            <div class="grade-experiencias">
+                <a class="card-experiencia" href="#lugares"><span class="icone-card">⌂</span><h3>História</h3><p>Memórias, lugares e personagens que ajudaram a construir a cidade.</p><span class="seta-card">↗</span></a>
+                <a class="card-experiencia" href="#lugares"><span class="icone-card">✦</span><h3>Cultura</h3><p>Tradições, manifestações, festas e expressões da identidade local.</p><span class="seta-card">↗</span></a>
+                <a class="card-experiencia" href="#culinaria"><span class="icone-card">♨</span><h3>Culinária</h3><p>Sabores que carregam histórias e aproximam gerações.</p><span class="seta-card">↗</span></a>
+                <a class="card-experiencia" href="#lugares"><span class="icone-card">⌁</span><h3>Natureza</h3><p>Paisagens e experiências para respirar, contemplar e conhecer.</p><span class="seta-card">↗</span></a>
+                <a class="card-experiencia" href="#roteiro"><span class="icone-card">◉</span><h3>Eventos</h3><p>Momentos que reúnem pessoas e celebram a cultura batalhense.</p><span class="seta-card">↗</span></a>
+                <a class="card-experiencia" href="#galeria"><span class="icone-card">⌖</span><h3>Lugares</h3><p>Locais que merecem entrar no roteiro de moradores e visitantes.</p><span class="seta-card">↗</span></a>
+            </div>
+        </section>
+
+        <section class="secao secao-bege" id="lugares">
+            <div class="secao-cabecalho">
+                <span class="numero-secao">03</span>
+                <div><span class="sobretitulo">Lugares para conhecer</span><h2>Três paradas para começar sua viagem.</h2></div>
+            </div>
+            <div class="grade-lugares">
+                <article class="card-lugar card-lugar-destaque">
+                    <img src="imagens/lugar-01.jpeg" alt="Imagem provisória do primeiro ponto turístico">
+                    <div class="conteudo-lugar"><span>Natureza</span><h3>Cachoeira do Xixá</h3><p>A Cachoeira do Xixá é um dos principais atrativos de ecoturismo no Piauí, localizada no povoado que leva o mesmo nome, no município de Batalha, a cerca de 160 km de Teresina. 
+O destino destaca-se por sua beleza natural exuberante e pelo fácil acesso.</p><div class="acoes-lugar">
+
+    <button
+        class="ver-no-mapa"
+        data-lat="-3.9683642862219726"
+        data-lng="-42.101162415345385"
+    >
+        Ver no mapa
+    </button>
+
+    <a
+        class="como-chegar"
+        href="https://www.google.com/maps/dir/?api=1&destination=-3.9683642862219726, -42.101162415345385"
+        target="_blank"
+        rel="noopener"
+    >
+        Como chegar ↗
+    </a>
+
+</div></div>
+                </article>
+                <article class="card-lugar">
+                    <img src="imagens/lugar-02.png" alt="Imagem provisória do segundo ponto turístico">
+                    <div class="conteudo-lugar"><span>História</span><h3>Igreja Matriz de São Gonçalo </h3><p>A Igreja Matriz de São Gonçalo é um símbolo histórico, religioso e arquitetônico de Batalha, Piauí. 
+Localizada no coração do centro urbano, na Praça da Matriz, ela representa o marco inicial e o coração da identidade cultural do município.</p><div class="acoes-lugar">
+
+    <button
+        class="ver-no-mapa"
+        data-lat="-4.023606505777862"
+        data-lng="-42.07712541534539"
+    >
+        Ver no mapa
+    </button>
+
+    <a
+        class="como-chegar"
+        href="https://www.google.com/maps/dir/?api=1&destination=-4.023606505777862, -42.07712541534539"
+        target="_blank"
+        rel="noopener"
+    >
+        Como chegar ↗
+    </a>
+
+</div></div>
+                </article>
+                <article class="card-lugar">
+                    <img src="imagens/lugar-03.png" alt="Imagem provisória do terceiro ponto turístico">
+                    <div class="conteudo-lugar"><span>NOITE & LAZER</span><h3>lanchonetes</h3><p> lanchonetes muito populares em Batalha, Piauí, conhecida por ser um dos principais pontos de delivery e lanches rápidos da cidade.</p><div class="acoes-lugar">
+
+    <button
+        class="ver-no-mapa"
+        data-lat="-4.017459001814947"
+        data-lng="-42.08413534047287"
+    >
+        Ver no mapa
+    </button>
+
+    <a
+        class="como-chegar"
+        href="https://www.google.com/maps/dir/?api=1&destination=-4.017459001814947, -42.08413534047287"
+        target="_blank"
+        rel="noopener"
+    >
+        Como chegar ↗
+    </a>
+
+</div></div>
+                </article>
+            </div>
+        </section>
+                <!-- =========================
+            MERCADO LOCAL
+        ========================== -->
+        <section class="secao secao-mercado" id="mercado">
+
+            <div class="secao-cabecalho">
+                <span class="numero-secao">04</span>
+
+                <div>
+                    <span class="sobretitulo">Mercado local</span>
+
+                    <h2>
+                        Conheça quem movimenta Batalha.
+                    </h2>
+
+                    <p class="descricao-secao">
+                        Restaurantes, pousadas, artesãos, comerciantes e serviços
+                        que ajudam a fortalecer a economia da nossa cidade.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="grade-negocios">
+
+                <!-- ESTABELECIMENTO PARCEIRO -->
+                <article class="card-negocio card-parceiro">
+
+                    <span class="selo-parceiro">
+                        Parceiro em destaque
+                    </span>
+
+                    <img
+                        src="imagens/Odecasa.jpeg"
+                        alt="Imagem do estabelecimento parceiro"
+                    >
+
+                    <div class="conteudo-negocio">
+
+                        <span class="categoria-negocio">
+                            SuperMercado
+                        </span>
+
+                        <h3>Ô de Casa </h3>
+
+                        <p>
+                            É um dos principais e mais completos estabelecimentos comerciais de Batalha, Piauí. 
+                            Fundado em 2021, consolidou-se como uma grande referência na região pela sua proposta de oferecer ampla variedade de produtos, atendimento atencioso e preços competitivos.
+                        </p>
+
+                        <div class="acoes-negocio">
+
+                            <div class="acoes-negocio">
+
+                                <a
+                                    class="botao-negocio"
+                                    href="https://wa.me/55SEUNUMERO"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    WhatsApp
+                                </a>
+
+                                <button
+                                    class="botao-negocio botao-negocio-claro ver-no-mapa"
+                                    data-lat="-4.0207693269313065"
+                                    data-lng="-42.08074193069077"
+                                >
+                                    Ver no mapa
+                                </button>
+
+                            </div>
+
+                            <!-- <a
+                                class="botao-negocio botao-negocio-claro"
+                                href="https://www.google.com/maps/search/?api=1&query=Batalha%2CPI"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Localização
+                            </a> -->
+
+                        </div>
+
+                    </div>
+                </article>
+
+
+                <!-- ESTABELECIMENTO COMUM -->
+                <article class="card-negocio">
+
+                    <img
+                        src="imagens/pousada.jpg"
+                        alt="Imagem de uma pousada local"
+                    >
+
+                    <div class="conteudo-negocio">
+
+                        <span class="categoria-negocio">
+                            Hospedagem
+                        </span>
+
+                        <h3>Pousada Zé de Melo</h3>
+
+                        <p>
+                             Uma das opções de hospedagem mais tradicionais e recomendadas em Batalha, Piauí. 
+                             Reconhecida localmente pelo ambiente acolhedor, a pousada foca no bem-estar e no atendimento humanizado, oferecendo uma estadia com excelente custo-benefício, ideal para turistas e profissionais que visitam a região
+                        </p>
+
+                        <div class="acoes-negocio">
+
+                                <a
+                                    class="botao-negocio"
+                                    href="https://wa.me/55SEUNUMERO"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    WhatsApp
+                                </a>
+
+                                <button
+                                    class="botao-negocio botao-negocio-claro ver-no-mapa"
+                                    data-lat="-4.025387808576699"
+                                    data-lng="-42.07456727116365"
+                                >
+                                    Ver no mapa
+                                </button>
+
+                            </div>
+
+                    </div>
+                </article>
+
+
+                <!-- ESTABELECIMENTO COMUM -->
+                <article class="card-negocio">
+
+                    <img
+                        src="imagens/churrascaria.png"
+                        alt="Imagem de artesanato local"
+                    >
+
+                    <div class="conteudo-negocio">
+
+                        <span class="categoria-negocio">
+                            Churrascaria
+                        </span>
+
+                        <h3>Churrascaria Brasil</h3>
+
+                        <p>
+                            A Churrascaria Brasil é uma das principais novidades gastronômicas de Batalha, Piauí, 
+                            destacando-se como um ponto de encontro vibrante que une o tradicional churrasco na brasa com entretenimento local.
+                        </p>
+
+                        <div class="acoes-negocio">
+
+                                <a
+                                    class="botao-negocio"
+                                    href="https://wa.me/55SEUNUMERO"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+                                    WhatsApp
+                                </a>
+
+                                <button
+                                    class="botao-negocio botao-negocio-claro ver-no-mapa"
+                                    data-lat="-4.00728877839751"
+                                    data-lng="-42.09465391163651"
+                                >
+                                    Ver no mapa
+                                </button>
+
+                            </div>
+
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="secao-culinaria" id="culinaria">
+            <div class="culinaria-texto">
+                <span class="numero-secao numero-claro">04</span>
+                <span class="sobretitulo">Culinária batalhense</span>
+                <h2>Sabores que contam <span>a história da nossa gente.</span></h2>
+                <p>Sabores que atravessam gerações, receitas cheias de memória e aquele tempero que faz a gente reconhecer o Nordeste logo na primeira garfada.</p>
+                <a class="botao botao-claro" href="#galeria">Conhecer os sabores</a>
+                <div class="selos"><span>Tradição</span><span>Cultura</span><span>Identidade</span></div>
+            </div>
+            <div class="culinaria-visual">
+                <div class="circulo-culinaria"></div>
+                <img class="foto-aluno foto-cozinheiro" src="imagens/aluno-cozinheiro.png" alt="Espaço reservado para a fotografia de um aluno vestido de cozinheiro">
+                <span class="instrucao-foto">Da nossa terra, direto para a sua memória.</span>
+            </div>
+        </section>
+        <!-- =========================
+     MAPA INTERATIVO
+========================== -->
+<section class="secao secao-mapa" id="mapa">
+
+    <div class="secao-cabecalho">
+        <span class="numero-secao">06</span>
+
+        <div>
+            <span class="sobretitulo">Mapa BatalhaTour</span>
+
+            <h2>
+                Encontre lugares e planeje sua visita.
+            </h2>
+
+            <p class="descricao-secao">
+                Explore pontos turísticos, restaurantes, hospedagens
+                e estabelecimentos parceiros.
+            </p>
+        </div>
+    </div>
+
+
+    <div class="mapa-layout">
+
+        <aside class="painel-mapa">
+
+            <span class="etiqueta">Guia turístico digital</span>
+
+            <h3>Explore Batalha pelo mapa</h3>
+
+            <p>
+                Clique nos marcadores para conhecer o local,
+                visualizar informações e abrir uma rota.
+            </p>
+
+            <div class="legenda-mapa">
+
+                <div>
+                    <span class="marcador-legenda marcador-turismo"></span>
+                    Pontos turísticos
+                </div>
+
+                <div>
+                    <span class="marcador-legenda marcador-comercio"></span>
+                    Mercado local
+                </div>
+
+                <div>
+                    <span class="marcador-legenda marcador-gastronomia"></span>
+                    Gastronomia
+                </div>
+
+            </div>
+
+            <p class="aviso-mapa">
+                Os pontos apresentados inicialmente são demonstrativos.
+                Depois serão substituídos pelas coordenadas reais.
+            </p>
+
+        </aside>
+
+
+        <!-- O MAPA SERÁ CRIADO AQUI PELO JAVASCRIPT -->
+        <div
+            id="mapa-batalhatour"
+            aria-label="Mapa interativo de Batalha"
+        ></div>
+
+    </div>
+
+</section>
+        <section class="secao secao-clara" id="roteiro">
+            <div class="secao-cabecalho">
+                <span class="numero-secao">05</span>
+
+                <div>
+                    <span class="sobretitulo">Roteiro de um dia</span>
+
+                    <h2>
+                        Um dia em Batalha.
+                    </h2>
+
+                    <p class="descricao-secao">
+                        Um roteiro para quem quer conhecer, experimentar
+                        e aproveitar a cidade do começo ao fim.
+                    </p>
+                </div>
+            </div>
+            <div class="roteiro-grade">
+                <div class="linha-tempo">
+
+                <article>
+                    <span class="horario">08h</span>
+
+                    <div>
+                        <span class="tipo-roteiro parceiro">
+                            Parceiro BatalhaTour
+                        </span>
+
+                        <h3>
+                            Comece pelos sabores locais
+                        </h3>
+
+                        <p>
+                            Comece o dia conhecendo a gastronomia da cidade
+                            em um estabelecimento recomendado pelo BatalhaTour.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article>
+                    <span class="horario">10h</span>
+
+                    <div>
+                        <span class="tipo-roteiro">
+                            História
+                        </span>
+
+                        <h3>
+                            Igreja Matriz de São Gonçalo
+                        </h3>
+
+                        <p>
+                            Conheça um dos espaços ligados à história,
+                            à memória e à identidade de Batalha.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article>
+                    <span class="horario">14h</span>
+
+                    <div>
+                        <span class="tipo-roteiro">
+                            Natureza
+                        </span>
+
+                        <h3>
+                            Cachoeira do Xixá
+                        </h3>
+
+                        <p>
+                            Aproveite a tarde em contato com um dos
+                            atrativos naturais apresentados pelo BatalhaTour.
+                        </p>
+                    </div>
+                </article>
+
+
+                <article>
+                    <span class="horario">17h</span>
+
+                    <div>
+                        <span class="tipo-roteiro">
+                            Lazer
+                        </span>
+
+                        <h3>
+                            Encerre o dia aproveitando Batalha
+                        </h3>
+
+                        <p>
+                            Finalize o roteiro em um espaço de lazer,
+                            gastronomia ou convivência recomendado na plataforma.
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+                <div class="roteiro-visual">
+                    <img src="imagens/aluno-roteiro.svg" alt="Espaço reservado para a fotografia de um aluno com mapa ou câmera">
+                    <span>Seu guia para um dia em Batalha</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao secao-escura" id="galeria">
+            <div class="secao-cabecalho secao-cabecalho-claro">
+                <span class="numero-secao">06</span>
+                <div><span class="sobretitulo">Galeria</span><h2>Imagens que transformam a cidade em experiência.</h2></div>
+            </div>
+            <div class="galeria-grade">
+                <figure class="galeria-item galeria-alto"><img src="imagens/galeria-01.svg" alt="Imagem provisória da galeria"></figure>
+                <figure class="galeria-item"><img src="imagens/galeria-02.svg" alt="Imagem provisória da galeria"></figure>
+                <figure class="galeria-item"><img src="imagens/galeria-03.svg" alt="Imagem provisória da galeria"></figure>
+                <figure class="galeria-item galeria-largo"><img src="imagens/galeria-04.svg" alt="Imagem provisória da galeria"></figure>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div>
+            <img src="imagens/logo-batalhatour-clara.png" alt="BatalhaTour">
+            <p>Projeto desenvolvido pelos estudantes do 1º B nas disciplinas de Desenvolvimento de Sistemas Front-end e Métodos Ágeis.</p>
+        </div>
+        <div class="creditos"><span>Feira Tecnológica</span><strong>2026</strong></div>
+    </footer>
+    <!-- JavaScript do Leaflet -->
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+></script>
+
+
+<script>
+    /*
+        PONTO INICIAL DO MAPA
+
+        Esta coordenada centraliza o mapa na cidade de Batalha.
+    */
+    const centroDeBatalha = [-4.02362, -42.0802];
+
+
+    /*
+        CRIAÇÃO DO MAPA
+    */
+    const mapaBatalhaTour = L.map("mapa-batalhatour").setView(
+        centroDeBatalha,
+        13
+    );
+
+
+    /*
+        CAMADA VISUAL DO MAPA
+    */
+    L.tileLayer(
+        "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            maxZoom: 19,
+
+            attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }
+    ).addTo(mapaBatalhaTour);
+
+
+    /*
+        LOCAIS CADASTRADOS
+
+        Aqui ficam os pontos que aparecerão
+        automaticamente no mapa.
+    */
+    const locais = [
+
+        {
+            nome: "Centro de Batalha",
+
+            categoria: "Ponto de referência",
+
+            descricao:
+                "Ponto inicial utilizado para demonstrar o funcionamento do mapa.",
+
+            latitude: -4.02362,
+
+            longitude: -42.0802
+        },
+
+
+        {
+            nome: "Cachoeira do Xixá",
+
+            categoria: "Natureza",
+
+            descricao:
+                "Descrição curta do local.",
+
+            imagem: "imagens/lugar-01.jpeg",
+
+            latitude: -3.9683642862219726,
+
+            longitude: -42.101162415345385
+        },
+        {
+            nome: "Igreja Matriz de São Gonçalo",
+
+            categoria: "História",
+
+            descricao:
+                "Descrição curta do local.",
+
+            imagem: "imagens/lugar-02.png",
+
+            latitude: -4.023606505777862,
+
+            longitude: -42.07712541534539
+        },
+          {
+            nome: "Lanchonete",
+
+            categoria: "NOITE & LAZER",
+
+            descricao:
+                "Descrição curta do local.",
+
+            imagem: "imagens/lugar-03.png",
+
+            latitude: -4.017459001814947,
+
+            longitude: -42.08413534047287
+        },
+        ,{
+            nome: "Ô de casa Supermercado",
+
+            categoria: "SuperMercado",
+
+            descricao:
+                "Pequena descrição do estabelecimento e do que ele oferece.",
+
+            imagem:
+                "imagens/Odecasa.jpeg",
+
+            latitude: -4.0207693269313065,
+
+            longitude: -42.08074193069077
+        },
+        ,{
+            nome: "Pousada Zé de Melo",
+
+            categoria: "Pousada",
+
+            descricao:
+                "Pequena descrição do estabelecimento e do que ele oferece.",
+
+            imagem:
+                "imagens/pousada.jpg",
+
+            latitude: -4.025387808576699,
+
+            longitude: -42.07456727116365
+        },
+        {
+            nome: "Churrascaria Brasil",
+
+            categoria: "Churrascaria",
+
+            descricao:
+                "Pequena descrição do estabelecimento e do que ele oferece.",
+
+            imagem:
+                "imagens/churrascaria.png",
+
+            latitude: -4.00728877839751,
+
+            longitude: -42.09465391163651
+        }
+
+    ];
+
+
+    /*
+        GUARDA OS MARCADORES CADASTRADOS
+    */
+    const marcadores = [];
+
+
+    /*
+        COLOCA OS LOCAIS CADASTRADOS NO MAPA
+    */
+    locais.forEach(function (local) {
+
+        const enderecoDaRota =
+            "https://www.google.com/maps/dir/?api=1" +
+            "&destination=" +
+            local.latitude +
+            "%2C" +
+            local.longitude;
+
+        const imagemDoLocal = local.imagem
+            ? `
+                <img
+                    class="popup-imagem"
+                    src="${local.imagem}"
+                    alt="${local.nome}"
+                >
+            `
+            : "";
+        const conteudoDoPopup = `
+            <div class="popup-local">
+                ${imagemDoLocal}
+                <span class="popup-categoria">
+                    ${local.categoria}
+                </span>
+
+                <h3>
+                    ${local.nome}
+                </h3>
+
+                <p>
+                    ${local.descricao}
+                </p>
+
+                <a
+                    class="botao-popup"
+                    href="${enderecoDaRota}"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Como chegar
+                </a>
+
+            </div>
+        `;
+
+
+        const marcador = L.marker([
+            local.latitude,
+            local.longitude
+        ])
+        .addTo(mapaBatalhaTour)
+        .bindPopup(conteudoDoPopup);
+
+
+        marcadores.push({
+            latitude: local.latitude,
+            longitude: local.longitude,
+            marcador: marcador
+        });
+
+    });
+
+
+    /*
+        MOSTRA AS COORDENADAS NO CONSOLE
+        QUANDO CLICAMOS NO MAPA
+
+        F12 → Console
+    */
+    mapaBatalhaTour.on("click", function (evento) {
+
+        console.log(
+            "Latitude:",
+            evento.latlng.lat,
+            "Longitude:",
+            evento.latlng.lng
+        );
+
+    });
+
+
+    /*
+        BOTÕES "VER NO MAPA"
+    */
+    const botoesVerNoMapa =
+        document.querySelectorAll(".ver-no-mapa");
+
+
+    /*
+        MARCADOR CRIADO QUANDO O VISITANTE
+        CLICA EM "VER NO MAPA"
+    */
+    
+
+
+    botoesVerNoMapa.forEach(function (botao) {
+
+        botao.addEventListener("click", function () {
+
+            const latitude =
+                Number(botao.dataset.lat);
+
+            const longitude =
+                Number(botao.dataset.lng);
+
+
+            /*
+                ROLA A PÁGINA ATÉ O MAPA
+            */
+            document
+            .querySelector("#mapa-batalhatour")
+            .scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+
+            /*
+                ESPERA A ROLAGEM E DEPOIS
+                CENTRALIZA O MAPA
+            */
+           setTimeout(function () {
+
+            const localEncontrado =
+                marcadores.find(function (item) {
+
+                    return (
+                        Math.abs(item.latitude - latitude) < 0.000001 &&
+                        Math.abs(item.longitude - longitude) < 0.000001
+                    );
+
+                });
+
+
+            mapaBatalhaTour.flyTo(
+                [latitude, longitude],
+                16
+            );
+
+
+            if (localEncontrado) {
+
+                mapaBatalhaTour.once("moveend", function () {
+
+                    localEncontrado.marcador.openPopup();
+
+                });
+
+            }
+
+        }, 900);
+
+        });
+
+    });
+
+</script>
+<script>
+
+    const botaoMenu = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".menu");
+
+
+   botaoMenu.addEventListener("click", function () {
+
+        menu.classList.toggle("menu-aberto");
+
+        botaoMenu.classList.toggle("ativo");
+
+
+        const menuEstaAberto =
+            menu.classList.contains("menu-aberto");
+
+
+        botaoMenu.setAttribute(
+            "aria-expanded",
+            menuEstaAberto
+        );
+
+
+        const linksDoMenu = document.querySelectorAll(".menu a");
+
+
+linksDoMenu.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+        menu.classList.remove("menu-aberto");
+
+        botaoMenu.classList.remove("ativo");
+
+        botaoMenu.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    });
+
+});
+
+    });
+
+</script>
+</body>
+</html>
