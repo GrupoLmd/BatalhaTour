@@ -33,6 +33,57 @@ a { color: inherit; text-decoration: none; }
 .botao-claro { border-color: var(--branco); background: var(--branco); color: var(--verde-escuro); }
 .link-destaque { font-weight: 700; color: var(--verde-escuro); transition: .2s; }
 .link-destaque:hover { color: var(--terracota); }
+.link-explorar {
+    display: inline-block;
+    margin-top: 18px;
+
+    color: var(--verde-medio);
+
+    font-size: 0.9rem;
+    font-weight: 800;
+
+    transition: 0.2s ease;
+}
+
+.link-explorar:hover {
+    color: var(--terracota);
+}
+
+
+.grupo-explore {
+    margin-top: 80px;
+    scroll-margin-top: 120px;
+}
+
+.grupo-explore:first-of-type {
+    margin-top: 0;
+}
+
+
+.cabecalho-grupo {
+    max-width: 720px;
+    margin-bottom: 32px;
+}
+
+.cabecalho-grupo h3 {
+    margin: 7px 0 10px;
+
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    line-height: 1.05;
+
+    color: var(--verde-escuro);
+}
+
+.cabecalho-grupo p {
+    color: var(--texto-suave);
+}
+
+
+.grade-explore {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
 .etiqueta, .sobretitulo { display: inline-block; color: var(--verde-medio); font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
 .numero-secao { width: 44px; height: 44px; border: 1px solid var(--verde-medio); border-radius: 50%; display: inline-grid; place-items: center; color: var(--verde-medio); font-size: .8rem; font-weight: 800; flex: 0 0 auto; }
 .numero-claro { border-color: rgba(255,255,255,.5); color: var(--branco); }
@@ -827,4 +878,12 @@ section {
         min-height: 470px;
         border-width: 4px;
     }
+    .grade-explore {
+    grid-template-columns: 1fr;
+    }
+
+    .grupo-explore {
+        margin-top: 60px;
+    }
+    
 }
