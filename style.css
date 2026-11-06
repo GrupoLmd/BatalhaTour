@@ -399,7 +399,78 @@ section {
 /* =========================================
    MERCADO LOCAL
 ========================================= */
+.mercado-destaque {
+    min-height: 570px;
+    margin-bottom: 70px;
 
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+
+    overflow: hidden;
+
+    border-radius: 34px;
+
+    background: var(--verde-escuro);
+    color: var(--branco);
+}
+
+.mercado-destaque-texto {
+    position: relative;
+    z-index: 3;
+
+    padding: 70px;
+}
+
+.mercado-destaque-texto .sobretitulo {
+    color: var(--verde-lima);
+}
+
+.mercado-destaque-texto h3 {
+    margin: 15px 0 22px;
+
+    font-size: clamp(2.8rem, 5vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+}
+
+.mercado-destaque-texto p {
+    max-width: 560px;
+    margin-bottom: 30px;
+
+    color: rgba(255,255,255,.75);
+}
+
+.mercado-destaque-visual {
+    position: relative;
+
+    min-height: 570px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.forma-mercado {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: 5%;
+    bottom: -12%;
+
+    border-radius: 50%;
+
+    background: var(--verde-vivo);
+}
+
+.foto-mercado {
+        width: min(900px, 70%);
+        max-height: 620px;
+        position: relative;
+        
+    }
 
 .secao-mercado {
     background: var(--bege);
@@ -707,14 +778,9 @@ section {
 /* =========================================
    RESPONSIVIDADE
 ========================================= */
-@media (min-width: 1101px) {
 
-    .foto-cozinheiro {
-        position: relative;
-        left: 40px;
-    }
 
-}
+
 @media (min-width: 1101px) {
 
     .secao-culinaria {
@@ -726,8 +792,8 @@ section {
     }
 
     .circulo-culinaria {
-        width: 750px;
-        height: 750px;
+        width: 650px;
+        height: 650px;
 
         right: -2%;
         bottom: -10%;
@@ -735,12 +801,16 @@ section {
 
     .foto-cozinheiro {
         width: min(720px, 96%);
-        max-height: 900px;
+        max-height: 800px;
 
         transform: none;
+        position: relative;
+        left: 40px;
     }
 
 }
+
+
 
 @media (max-width: 1100px) {
     .menu { gap: 16px; font-size: .8rem; }
@@ -885,5 +955,32 @@ section {
     .grupo-explore {
         margin-top: 60px;
     }
-    
+ .mercado-destaque {
+    grid-template-columns: 1fr;
 }
+
+.mercado-destaque-texto {
+    padding: 55px 28px 15px;
+}
+
+.mercado-destaque-visual {
+    min-height: 470px;
+}
+
+.forma-mercado {
+    width: 340px;
+    height: 340px;
+
+    left: 50%;
+    right: auto;
+    bottom: -8%;
+
+    transform: translateX(-50%);
+}
+
+.foto-mercado {
+    width: 120%;
+    max-height: 600px;
+}   
+}
+
